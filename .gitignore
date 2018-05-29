@@ -9,7 +9,9 @@
 # Ref: https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
 # Ref: https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
 # Ref: https://github.com/github/gitignore/blob/master/Global/Linux.gitignore
+__MACOSX
 .DS_STORE
+.DS_Store
 Thumbs.db
 
 # Editors
@@ -32,3 +34,6 @@ scripts
 
 # Log files
 yarn-error.log
+
+# Build output
+coverage-jest
