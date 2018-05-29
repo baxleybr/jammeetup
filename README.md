@@ -1,1 +1,4 @@
 # jammeetup
+
+# License
+GPL
