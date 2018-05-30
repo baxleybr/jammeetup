@@ -43,6 +43,7 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) => (
   performance: { hints: false },
   devServer: {
     contentBase: outDir,
+	host: '0.0.0.0',
     // serve index.html for all 404 (required for push-state)
     historyApiFallback: true
   },
