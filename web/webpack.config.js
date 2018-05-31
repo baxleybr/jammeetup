@@ -23,14 +23,13 @@ const cssRules = [
   { loader: 'css-loader' },
 ];
 
-module.exports = ({production, server, extractCss, coverage, analyze} = {}) => ({
+module.exports = ({ production, server, extractCss, coverage, analyze } = {}) => ({
   resolve: {
     extensions: ['.ts', '.js'],
     modules: [srcDir, 'node_modules'],
   },
   entry: {
     app: ['aurelia-bootstrapper'],
-    vendor: ['bluebird'],
   },
   mode: production ? 'production' : 'development',
   output: {
@@ -43,7 +42,7 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) => (
   performance: { hints: false },
   devServer: {
     contentBase: outDir,
-	host: '0.0.0.0',
+    host: '0.0.0.0',
     // serve index.html for all 404 (required for push-state)
     historyApiFallback: true
   },
@@ -67,21 +66,19 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) => (
         // because Aurelia would try to require it again in runtime
         use: cssRules
       },
-      { 
-        test: /\.less$/i, 
+      {
+        test: /\.less$/i,
         use: ['style-loader', 'css-loader', 'less-loader'],
         issuer: /\.[tj]s$/i
       },
-      { 
-        test: /\.less$/i, 
+      {
+        test: /\.less$/i,
         use: ['css-loader', 'less-loader'],
-        issuer: /\.html?$/i 
+        issuer: /\.html?$/i
       },
       { test: /\.html$/i, loader: 'html-loader' },
       { test: /\.tsx?$/, loader: "ts-loader" },
       { test: /\.json$/i, loader: 'json-loader' },
-      // use Bluebird as the global Promise implementation:
-      { test: /[\/\\]node_modules[\/\\]bluebird[\/\\].+\.js$/, loader: 'expose-loader?Promise' },
       // embed small images and fonts as Data Urls and larger ones as files:
       { test: /\.(png|gif|jpg|cur)$/i, loader: 'url-loader', options: { limit: 8192 } },
       { test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff2' } },
@@ -97,11 +94,8 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) => (
   },
   plugins: [
     new AureliaPlugin(),
-    new ProvidePlugin({
-      'Promise': 'bluebird'
-    }),
     new ModuleDependenciesPlugin({
-      'aurelia-testing': [ './compile-spy', './view-spy' ]
+      'aurelia-testing': ['./compile-spy', './view-spy']
     }),
     new HtmlWebpackPlugin({
       template: 'index.ejs',

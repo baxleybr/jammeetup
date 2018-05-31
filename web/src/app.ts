@@ -1,5 +1,5 @@
-import { RouterConfiguration, Router } from 'aurelia-router';
 import { PLATFORM } from 'aurelia-pal';
+import { Router, RouterConfiguration } from 'aurelia-router';
 
 export class App {
   message: 'Hello World!';
@@ -13,6 +13,6 @@ export class App {
       { route: 'home', name: 'home', moduleId: PLATFORM.moduleName('home/home'), title: 'Home' },
       { route: 'profile', name: 'profile', moduleId: PLATFORM.moduleName('profile/profile'), title: 'Profile' },
       { route: 'sessions', name: 'sessions', moduleId: PLATFORM.moduleName('sessions/sessions'), title: 'Sessions' },
-    ])
-  }
-}
+    ]);
+  };
+};
