@@ -1,0 +1,16 @@
+<template>
+    <div>Equipment Stuff</div>
+    <div repeat.for="item of equipment">
+      <label for="item.title">Title</label>
+      <input type="text" value.bind="item.title">
+  
+      <label for="item.skillLevel">Category</label>
+      <input type="text" value.bind="item.category">
+  
+      <label for="item.interest">Description</label>
+      <input type="text" value.bind="item.description">
+  
+    </div>
+    <button click.delegate="addItem()">Add</button>
+    <button click.delegate="onSave()">Save</button>
+  </template>

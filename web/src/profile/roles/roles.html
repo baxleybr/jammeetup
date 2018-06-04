@@ -1,0 +1,16 @@
+<template>
+  <div>Roles Stuff</div>
+  <div repeat.for="role of roles">
+    <label for="role.title">Title</label>
+    <input type="text" value.bind="role.title">
+
+    <label for="role.skillLevel">Skill Level</label>
+    <input type="text" value.bind="role.skillLevel">
+
+    <label for="role.interest">Interest</label>
+    <input type="text" value.bind="role.interest">
+
+  </div>
+  <button click.delegate="addRole()">Add</button>
+  <button click.delegate="onSave()">Save</button>
+</template>

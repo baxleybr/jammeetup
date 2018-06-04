@@ -1,8 +1,20 @@
 <template>
+  <require from="./personal/personal"></require>
+  <require from="./roles/roles"></require>
+  <require from="./equipment/equipment"></require>
+
   <require from="./profile.less"></require>
-  <div class="sidenav">
-    <a>Personal</a>
-    <a>Roles</a>    
-    <a>Equipment</a>
+  <div class="body">
+    <div class="sidenav">
+      <a click.delegate="setViewState('personal')">Personal</a>
+      <a click.delegate="setViewState('roles')">Roles</a>
+      <a click.delegate="setViewState('equipment')">Equipment</a>
+    </div>
+
+    <div class="content">
+      <personal if.bind="viewState === 'personal'"></personal>
+      <roles if.bind="viewState === 'roles'"></roles>
+      <equipment if.bind="viewState === 'equipment'"></equipment>
+    </div>
   </div>
 </template>
