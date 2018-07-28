@@ -2,10 +2,12 @@ sudo: required
 
 services:
   - docker
+  - heroku
 
 before_install:
   - echo $dkey | docker login -u $dlogin --password-stdin
   - docker-compose up
   - cd ./web
+  - heroku --help
    
 
