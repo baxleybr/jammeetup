@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker login -u "$dlogin" -p "$dkey"
+  - echo "$dkey" | docker login -u "$dlogin" --password-stdin
   - docker-compose up
   - cd ./web
    
